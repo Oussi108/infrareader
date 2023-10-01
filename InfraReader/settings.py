@@ -143,7 +143,6 @@ STATICFILES_DIRS = [
 ]
 
 
-
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
@@ -163,4 +162,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mohammedfg.smi@gmail.com'  # Your Gmail email address
 EMAIL_HOST_PASSWORD = 'ausmlr o jow q cdwnq'
-
