@@ -1,0 +1,78 @@
+{% extends 'Dashboard.html' %}
+{% load static %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block content %}
+<style>
+    /* Basic page styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+    h1 {
+        color: #333;
+    }
+    p {
+        color: #666;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+    /* PDF link styling */
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+<div class="container">
+    <h1>Bienvenue sur l'application Infra App</h1>
+    <p>Nous avons développé une application appelée "Infra App" conçue pour manipuler les relevés visuels des conditions routières. Elle offre un moyen fiable d'évaluer l'état de la route en utilisant le critère ISU.</p>
+
+    <p>En plus des fonctionnalités mentionnées précédemment, notre application offre les caractéristiques suivantes :</p>
+
+    <ul>
+        <li><strong>Gestion des Employés :</strong> Vous pouvez gérer vos employés au sein de l'application, notamment en ajoutant, modifiant et supprimant des profils d'employés.</li>
+        <li><strong>Téléchargement et Téléchargement de Fichiers :</strong> Les utilisateurs ont la possibilité de télécharger et de télécharger des fichiers Excel, ainsi que de suivre l'historique des téléchargements de fichiers et d'identifier l'employé responsable du téléchargement.</li>
+        <li><strong>Génération de Rapports :</strong> L'application vous permet de générer des rapports basés sur des filtres appliqués aux données des fichiers téléchargés. Ces rapports peuvent être imprimés au format PDF.</li>
+    </ul>
+
+    <p>Voici comment fonctionne l'application :</p>
+
+    <ul>
+        <li><strong>Authentification :</strong> Pour accéder à l'application, les utilisateurs doivent s'authentifier.</li>
+        <li><strong>Après une authentification réussie,</strong> vous serez redirigé vers la page d'accueil, où vous devez télécharger un fichier avant de continuer.</li>
+        <li><strong>Sur la page d'accueil,</strong> vous devez d'abord sélectionner un fichier déjà téléchargé et spécifier l'année de ce fichier. Ensuite, cliquez sur le bouton "Choisir". De plus, vous devez sélectionner un filtre (DPETL, Route, Sens de la voie, PKD, PKF). Notez que tous les champs de filtre sont obligatoires.</li>
+        <li><strong>Une fois que le filtre est appliqué sur la page d'accueil,</strong> vous pouvez visualiser des graphiques, des statistiques, l'historique et générer un fichier téléchargeable, ainsi que la possibilité d'imprimer des rapports au format PDF basés sur les données filtrées.</li>
+        <li><strong>Il existe une page dédiée à la gestion des employés,</strong> offrant des fonctions d'ajout, de modification et de suppression de profils d'employés.</li>
+        <li><strong>Une page de validation de fichier est disponible</strong> pour les fichiers téléchargés par des techniciens, où vous pouvez approuver ou rejeter les fichiers et voir le contenu du fichier.</li>
+        <li><strong>L'application propose une page d'historique</strong> qui affiche un tableau contenant le nom du fichier, la date de téléchargement et le statut de validation.</li>
+
+        <ul>
+            {% for pdf in pdfs %}
+    <li><strong>Téléchargement :</strong> <a href="{{ pdf.url }}" download>{{ pdf.name }}</a></li>
+        {% endfor %}
+        </ul>
+
+        
+    </ul>
+{% endblock %}
